@@ -1,0 +1,35 @@
+{
+	"methods": [{
+		"name": "gameType",
+		"operationType": "hqlquery",
+		"parameters": null,
+		"returnType": "[com.sales.data.GameType]"
+	}, {
+		"name": "gameYears",
+		"operationType": "hqlquery",
+		"parameters": null,
+		"returnType": "[com.sales.data.Year]"
+	}, {
+		"name": "quarterlyRevenue",
+		"operationType": "hqlquery",
+		"parameters": null,
+		"returnType": "[com.sales.data.Sale]"
+	}, {
+		"name": "teamsList",
+		"operationType": "hqlquery",
+		"parameters": null,
+		"returnType": "[com.sales.data.Team]"
+	}, {
+		"name": "venuesList",
+		"operationType": "hqlquery",
+		"parameters": null,
+		"returnType": "[com.sales.data.VenueDetail]"
+	}, {
+		"name": "yearlyRevenue",
+		"operationType": "hqlquery",
+		"parameters": null,
+		"returnType": "[com.sales.data.Sale]"
+	}],
+	"serviceType": "JSON-RPC",
+	"serviceURL": "sales.json"
+}

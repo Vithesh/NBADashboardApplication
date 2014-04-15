@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<beans xsi:schemaLocation="http://schema.cloudfoundry.org/spring http://schema.cloudfoundry.org/spring/cloudfoundry-spring-0.8.xsd http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd" xmlns="http://www.springframework.org/schema/beans" xmlns:cloud="http://schema.cloudfoundry.org/spring" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <bean class="com.sales.Sales" scope="singleton" lazy-init="true" id="sales">
+        <property name="dataServiceManager">
+            <ref bean="salesDataService"/>
+        </property>
+        <property name="taskManager">
+            <ref bean="salesTaskMgr"/>
+        </property>
+    </bean>
+    <bean class="com.wavemaker.runtime.data.spring.WMPropertyPlaceholderConfigurer">
+        <property name="ignoreUnresolvablePlaceholders" value="true"/>
+        <property name="locations">
+            <list>
+                <value>classpath:sales.properties</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" lazy-init="true" id="salesDataSource">
+        <property name="driverClassName" value="${sales.driverClassName}"/>
+        <property name="url" value="${sales.connectionUrl}"/>
+        <property name="username" value="${sales.username}"/>
+        <property name="password" value="${sales.password}"/>
+    </bean>
+    <bean class="org.springframework.orm.hibernate3.HibernateTransactionManager" lazy-init="true" id="salesTxMgr">
+        <property name="sessionFactory">
+            <ref bean="salesSessionFactory"/>
+        </property>
+    </bean>
+    <bean class="org.springframework.orm.hibernate3.HibernateTemplate" lazy-init="true" id="salesHibernateTemplate">
+        <property name="sessionFactory">
+            <ref bean="salesSessionFactory"/>
+        </property>
+    </bean>
+    <bean class="com.wavemaker.runtime.data.spring.ConfigurationAndSessionFactoryBean" lazy-init="true" id="salesSessionFactory">
+        <property name="name" value="sales"/>
+        <property name="dataSource" ref="salesDataSource"/>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">${sales.dialect}</prop>
+                <prop key="hibernate.transaction.factory_class">
+                    org.hibernate.transaction.JDBCTransactionFactory
+                </prop>
+                <prop key="hibernate.current_session_context_class">thread</prop>
+            </props>
+        </property>
+        <property name="mappingResources">
+            <list>
+                <value>com/sales/data/ActionItem.hbm.xml</value>
+                <value>com/sales/data/Country.hbm.xml</value>
+                <value>com/sales/data/Franchise.hbm.xml</value>
+                <value>com/sales/data/GameType.hbm.xml</value>
+                <value>com/sales/data/Participant.hbm.xml</value>
+                <value>com/sales/data/Sale.hbm.xml</value>
+                <value>com/sales/data/Schedule.hbm.xml</value>
+                <value>com/sales/data/Team.hbm.xml</value>
+                <value>com/sales/data/VenueDetail.hbm.xml</value>
+                <value>com/sales/data/Year.hbm.xml</value>
+                <value>com/sales/data/app-queries.ql.xml</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="com.wavemaker.runtime.data.spring.SpringDataServiceManager" lazy-init="true" id="salesDataService">
+        <constructor-arg>
+            <value>sales</value>
+        </constructor-arg>
+        <constructor-arg>
+            <ref bean="salesHibernateTemplate"/>
+        </constructor-arg>
+        <constructor-arg>
+            <ref bean="salesTxMgr"/>
+        </constructor-arg>
+        <constructor-arg>
+            <ref bean="salesTaskMgr"/>
+        </constructor-arg>
+        <constructor-arg>
+            <map>
+                <entry key="useIndividualCRUDOperations" value="false"/>
+                <entry key="refreshEntities" value=""/>
+            </map>
+        </constructor-arg>
+    </bean>
+    <bean class="com.wavemaker.runtime.data.DefaultTaskManager" lazy-init="true" id="salesTaskMgr"/>
+    <bean class="com.wavemaker.runtime.service.events.EventWire" lazy-init="false">
+        <property name="serviceWire" ref="salesServiceWire"/>
+        <property name="eventListener">
+            <bean class="com.wavemaker.runtime.data.DataServiceEventListener"/>
+        </property>
+    </bean>
+    <bean class="com.wavemaker.runtime.service.reflect.ReflectServiceWire" scope="singleton" lazy-init="false" id="salesServiceWire">
+        <property name="serviceId" value="sales"/>
+        <property name="serviceType" ref="DataService"/>
+    </bean>
+</beans>

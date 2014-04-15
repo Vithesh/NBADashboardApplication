@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service xmlns="http://www.activegrid.com/namespaces/ServiceDefinitions/1.0" id="sales" class="com.sales.Sales" CRUDService="true" type="DataService" springFile="sales.spring.xml">
+    <operation operationType="hqlquery" name="gameType">
+        <return typeRef="com.sales.data.GameType" isList="true"/>
+    </operation>
+    <operation operationType="hqlquery" name="gameYears">
+        <return typeRef="com.sales.data.Year" isList="true"/>
+    </operation>
+    <operation operationType="hqlquery" name="quarterlyRevenue">
+        <return typeRef="com.sales.data.Sale" isList="true"/>
+    </operation>
+    <operation operationType="hqlquery" name="teamsList">
+        <return typeRef="com.sales.data.Team" isList="true"/>
+    </operation>
+    <operation operationType="hqlquery" name="venuesList">
+        <return typeRef="com.sales.data.VenueDetail" isList="true"/>
+    </operation>
+    <operation operationType="hqlquery" name="yearlyRevenue">
+        <return typeRef="com.sales.data.Sale" isList="true"/>
+    </operation>
+    <dataobjects>
+        <dataobject javaType="com.sales.data.ActionItem" supportsQuickData="true">
+            <element name="id" typeRef="java.lang.Integer" isList="false" allowNull="false">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element name="description" typeRef="java.lang.String" isList="false" allowNull="true"/>
+            <element name="owner" typeRef="java.lang.String" isList="false" allowNull="true"/>
+            <element name="assignedTo" typeRef="java.lang.String" isList="false" allowNull="true"/>
+            <element name="proposalStatus" typeRef="java.lang.String" isList="false" allowNull="true"/>
+            <element name="actionStatus" typeRef="java.lang.String" isList="false" allowNull="true"/>
+            <element name="createdDate" typeRef="java.util.Date" isList="false" allowNull="false"/>
+            <element name="dueDate" typeRef="java.util.Date" isList="false" allowNull="true"/>
+        </dataobject>
+        <dataobject javaType="com.sales.data.Country" supportsQuickData="true">
+            <element name="id" typeRef="java.lang.Integer" isList="false" allowNull="false">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element name="name" typeRef="java.lang.String" isList="false" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="com.sales.data.Franchise" supportsQuickData="true">
+            <element name="to" typeRef="java.lang.Integer" isList="false" allowNull="true"/>
+            <element name="games" typeRef="java.lang.Integer" isList="false" allowNull="true"/>
+            <element name="franchise" typeRef="java.lang.String" isList="false" allowNull="true"/>
+            <element name="winLosePct" typeRef="java.lang.Float" isList="false" allowNull="true"/>
+            <element name="div" typeRef="java.lang.Integer" isList="false" allowNull="true"/>
+            <element name="from" typeRef="java.lang.Integer" isList="false" allowNull="true"/>
+            <element name="conf" typeRef="java.lang.Integer" isList="false" allowNull="true"/>
+            <element name="id" typeRef="java.lang.Integer" isList="false" allowNull="false">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element name="losees" typeRef="java.lang.Integer" isList="false" allowNull="true"/>
+            <element name="champ" typeRef="java.lang.Integer" isList="false" allowNull="true"/>
+            <element name="playoffs" typeRef="java.lang.Integer" isList="false" allowNull="true"/>
+            <element name="years" typeRef="java.lang.Integer" isList="false" allowNull="true"/>
+            <element name="wins" typeRef="java.lang.Integer" isList="false" allowNull="true"/>
+        </dataobject>
+        <dataobject javaType="com.sales.data.GameType" supportsQuickData="true">
+            <element name="id" typeRef="java.lang.Integer" isList="false" allowNull="false">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element name="name" typeRef="java.lang.String" isList="false" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="com.sales.data.Participant" supportsQuickData="true">
+            <element name="id" typeRef="java.lang.Integer" isList="false" allowNull="false">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element name="name" typeRef="java.lang.String" isList="false" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="com.sales.data.Sale" supportsQuickData="true">
+            <element name="id" typeRef="java.lang.Integer" isList="false" allowNull="false">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element name="home" typeRef="java.lang.String" isList="false" allowNull="true"/>
+            <element name="year" typeRef="java.lang.Integer" isList="false" allowNull="true"/>
+            <element name="date" typeRef="java.util.Date" isList="false" allowNull="false"/>
+            <element name="visitor" typeRef="java.lang.String" isList="false" allowNull="true"/>
+            <element name="quarter" typeRef="java.lang.Integer" isList="false" allowNull="true"/>
+            <element name="revenue" typeRef="java.lang.Float" isList="false" allowNull="true"/>
+        </dataobject>
+        <dataobject javaType="com.sales.data.Schedule" supportsQuickData="true">
+            <element name="id" typeRef="java.lang.Integer" isList="false" allowNull="false">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element name="home" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="gameType" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="winner" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="year" typeRef="java.lang.String" isList="false" allowNull="true"/>
+            <element name="visitorPoints" typeRef="java.lang.Integer" isList="false" allowNull="false"/>
+            <element name="gameDate" typeRef="java.util.Date" isList="false" allowNull="false"/>
+            <element name="visitor" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="homePoints" typeRef="java.lang.Integer" isList="false" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="com.sales.data.Team" supportsQuickData="true">
+            <element name="id" typeRef="java.lang.Integer" isList="false" allowNull="false">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element name="name" typeRef="java.lang.String" isList="false" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="com.sales.data.VenueDetail" supportsQuickData="true">
+            <element name="topGamePremium" typeRef="java.lang.Float" isList="false" allowNull="true"/>
+            <element name="location" typeRef="java.lang.String" isList="false" allowNull="true"/>
+            <element name="topGamePrice" typeRef="java.lang.Float" isList="false" allowNull="true"/>
+            <element name="pctChange" typeRef="java.lang.Float" isList="false" allowNull="true"/>
+            <element name="state" typeRef="java.lang.String" isList="false" allowNull="true"/>
+            <element name="team" typeRef="java.lang.String" isList="false" allowNull="true"/>
+            <element name="avgTicketPrice201112" typeRef="java.lang.Float" isList="false" allowNull="true"/>
+            <element name="avgTicketPrice201213" typeRef="java.lang.Float" isList="false" allowNull="true"/>
+            <element name="country" typeRef="java.lang.String" isList="false" allowNull="true"/>
+            <element name="id" typeRef="java.lang.Integer" isList="false" allowNull="false">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element name="arena" typeRef="java.lang.String" isList="false" allowNull="true"/>
+            <element name="capacity" typeRef="java.lang.Integer" isList="false" allowNull="true"/>
+            <element name="opened" typeRef="java.lang.Integer" isList="false" allowNull="true"/>
+        </dataobject>
+        <dataobject javaType="com.sales.data.Year" supportsQuickData="true">
+            <element name="id" typeRef="java.lang.Integer" isList="false" allowNull="false">
+                <require>delete</require>
+                <require>read</require>
+                <require>update</require>
+                <noChange>delete</noChange>
+                <noChange>read</noChange>
+                <noChange>update</noChange>
+                <exclude>insert</exclude>
+            </element>
+            <element name="name" typeRef="java.lang.String" isList="false" allowNull="false"/>
+        </dataobject>
+    </dataobjects>
+</service>

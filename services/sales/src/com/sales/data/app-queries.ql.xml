@@ -1,0 +1,22 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <meta attribute="@design.default-queries"/>
+    <query name="venuesList" comment="returns the list of all the venues">
+        from VenueDetail
+    </query>
+    <query name="teamsList" comment="returns the list of all the teams">
+        from Team
+    </query>
+    <query name="gameYears">
+        from Year
+    </query>
+    <query name="gameType">
+        from GameType
+    </query>
+    <query name="quarterlyRevenue" comment="returns the revenue quarterly">
+        FROM Sale group by QUARTER
+    </query>
+    <query name="yearlyRevenue" comment="returns the revenue yearly">
+        from Sale group by YEAR
+    </query>
+</hibernate-mapping>

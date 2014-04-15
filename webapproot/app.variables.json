@@ -1,0 +1,26 @@
+{
+	"goToPage-Main": {
+		"name": "goToPage-Main",
+		"owner": "App",
+		"operation": "gotoPage",
+		"pageName": "Main",
+		"dataBinding": {},
+		"category": "wm.NavigationVariable",
+		"_id": "wm-wm.NavigationVariable1389180517517"
+	},
+	"goToPage-ManageActions": {
+		"owner": "App",
+		"operation": "gotoPage",
+		"pageName": "ManageActions",
+		"category": "wm.NavigationVariable",
+		"_id": "wm-wm.NavigationVariable1396436891673",
+		"name": "goToPage-ManageActions"
+	},
+	"goToPage-Venue": {
+		"owner": "App",
+		"operation": "gotoPage",
+		"pageName": "Venue",
+		"category": "wm.NavigationVariable",
+		"_id": "wm-wm.NavigationVariable1396499081406"
+	}
+}

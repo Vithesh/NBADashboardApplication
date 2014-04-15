@@ -1,0 +1,64 @@
+<wm-page layouttype="one-column" columns="1" data-ng-controller="ManageActionsPageController" name="page1">
+    <wm-header height="auto" name="header">
+        <wm-layoutgrid rows="1" columns="2" name="headerlayout" height="auto">
+            <wm-gridrow name="headerrow">
+                <wm-gridcolumn name="headerleft" verticalalign="middle" columnwidth="8">
+                    <wm-picture picturesource="resources/images/logos/Other/wavemaker_64x64.png" name="AppLogo"></wm-picture>
+                    <wm-label caption="NBA" class="application-name" name="AppName" color="#ffffff" fontsize="20"></wm-label>
+                </wm-gridcolumn>
+                <wm-gridcolumn name="headerright" horizontalalign="right" verticalalign="middle" columnwidth="4">
+                    <wm-search name="siteSearch" dataset="Sales Dashboard, Venue Analyzer, Action Items Manager"></wm-search>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+    </wm-header>
+    <wm-top-nav name="top-nav">
+        <wm-list class="col-md-6" name="leftTopLinks">
+            <wm-list-item name="list_home">
+                <wm-button caption="Sales Dashboard" name="homeButton" iconname="dashboard" on-click="goToPage-Main"></wm-button>
+            </wm-list-item>
+            <wm-list-item name="list_venue">
+                <wm-button caption="Venue Analyzer" name="venueButton" iconname="globe" on-click="goToPage-Venue"></wm-button>
+            </wm-list-item>
+            <wm-list-item name="list_services">
+                <wm-button caption="Action Items Manager" name="atmButton" iconname="user" class="active" on-click="goToPage-ManageActions"></wm-button>
+            </wm-list-item>
+        </wm-list>
+        <wm-list horizontalalign="right" class="col-md-6" name="rightTopLinks">
+            <wm-list-item name="list_services">
+                <wm-button caption="Logout" name="logoutButton" iconname="log-out"></wm-button>
+            </wm-list-item>
+        </wm-list>
+    </wm-top-nav>
+    <wm-content name="content1">
+        <wm-row name="row1">
+            <wm-column class="app-content-column" columnwidth="12" name="column1">
+                <wm-livegrid service="sales@ActionItem" name="livegrid1">
+                    <wm-grid data-ng-controller="grid1Controller" dataset="bind:Variables.ActionItemLiveVariable1.dataSet" name="grid1">
+                        <wm-grid-column binding="id" caption="id" type="integer" primary-key="true" generator="identity" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                        <wm-grid-column binding="description" caption="description" type="string" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                        <wm-grid-column binding="owner" caption="owner" type="string" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                        <wm-grid-column binding="assignedTo" caption="assignedTo" type="string" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                        <wm-grid-column binding="proposalStatus" caption="proposalStatus" type="string" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                        <wm-grid-column binding="actionStatus" caption="actionStatus" type="string" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                        <wm-grid-column binding="createdDate" caption="createdDate" type="date" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                        <wm-grid-column binding="dueDate" caption="dueDate" type="date" pcdisplay="true" mobiledisplay="true"></wm-grid-column>
+                    </wm-grid>
+                    <wm-liveform data-ng-controller="liveform1Controller" dataset="bind:Variables.ActionItemLiveVariable1.dataSet" name="liveform1" basicbuttons="true"></wm-liveform>
+                </wm-livegrid>
+            </wm-column>
+        </wm-row>
+    </wm-content>
+    <wm-footer name="footer">
+        <wm-layoutgrid rows="1" columns="2" height="auto" name="footerlayout">
+            <wm-gridrow name="footerrow">
+                <wm-gridcolumn name="footerleft" verticalalign="bottom">
+                    <wm-label caption="Powered by WaveMaker" textalign="left" name="poweredby"></wm-label>
+                </wm-gridcolumn>
+                <wm-gridcolumn horizontalalign="right" verticalalign="bottom" name="footerright">
+                    <wm-label caption="Copyright 2014 [NBA]" textalign="right" name="copyright"></wm-label>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+    </wm-footer>
+</wm-page>

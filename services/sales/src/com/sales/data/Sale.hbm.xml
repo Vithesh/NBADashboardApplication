@@ -1,0 +1,27 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.sales.data.Sale" table="sale" catalog="sales" dynamic-insert="false" dynamic-update="false">
+        <id name="id" type="integer">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+        <property name="home" type="string">
+            <column name="home" length="100"/>
+        </property>
+        <property name="year" type="integer">
+            <column name="year"/>
+        </property>
+        <property name="date" type="date">
+            <column name="date" length="10" not-null="true"/>
+        </property>
+        <property name="visitor" type="string">
+            <column name="visitor" length="100"/>
+        </property>
+        <property name="revenue" type="float">
+            <column name="revenue" precision="10"/>
+        </property>
+        <property name="quarter" type="integer">
+            <column name="quarter"/>
+        </property>
+    </class>
+</hibernate-mapping>

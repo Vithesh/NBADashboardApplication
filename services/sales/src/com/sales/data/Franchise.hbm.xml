@@ -1,0 +1,45 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.sales.data.Franchise" table="franchise" catalog="sales" dynamic-insert="false" dynamic-update="false">
+        <id name="id" type="integer">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+        <property name="to" type="integer">
+            <column name="to"/>
+        </property>
+        <property name="games" type="integer">
+            <column name="games"/>
+        </property>
+        <property name="franchise" type="string">
+            <column name="franchise" length="150"/>
+        </property>
+        <property name="winLosePct" type="float">
+            <column name="win_lose_pct" precision="5"/>
+        </property>
+        <property name="div" type="integer">
+            <column name="div"/>
+        </property>
+        <property name="from" type="integer">
+            <column name="from"/>
+        </property>
+        <property name="conf" type="integer">
+            <column name="conf"/>
+        </property>
+        <property name="losees" type="integer">
+            <column name="losees"/>
+        </property>
+        <property name="champ" type="integer">
+            <column name="champ"/>
+        </property>
+        <property name="playoffs" type="integer">
+            <column name="playoffs"/>
+        </property>
+        <property name="years" type="integer">
+            <column name="years"/>
+        </property>
+        <property name="wins" type="integer">
+            <column name="wins"/>
+        </property>
+    </class>
+</hibernate-mapping>

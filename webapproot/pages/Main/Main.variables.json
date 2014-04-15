@@ -1,0 +1,282 @@
+{
+	"gameYears": {
+		"name": "gameYears",
+		"type": "Year",
+		"isList": true,
+		"owner": "Page",
+		"dataSet": {
+			"dataValue": ""
+		},
+		"dataBinding": {},
+		"saveInPhonegap": false,
+		"firstRow": 0,
+		"maxResults": 1000,
+		"designMaxResults": 0,
+		"operation": "gameYears",
+		"service": "sales",
+		"startUpdate": true,
+		"autoUpdate": false,
+		"onBeforeUpdate": "Javascript",
+		"serviceType": "DataService",
+		"category": "wm.ServiceVariable",
+		"_id": "wm-wm.ServiceVariable1396362487136"
+	},
+	"venuesList": {
+		"name": "venuesList",
+		"type": "NbaVenueDetails",
+		"isList": true,
+		"owner": "Page",
+		"dataSet": {
+			"dataValue": ""
+		},
+		"dataBinding": {},
+		"saveInPhonegap": false,
+		"firstRow": 0,
+		"maxResults": 50,
+		"designMaxResults": 0,
+		"operation": "venuesList",
+		"service": "sales",
+		"startUpdate": true,
+		"autoUpdate": false,
+		"onBeforeUpdate": "Javascript",
+		"serviceType": "DataService",
+		"category": "wm.ServiceVariable",
+		"_id": "wm-wm.ServiceVariable1396414766121"
+	},
+	"teamsList": {
+		"name": "teamsList",
+		"type": "NbaScheduleResult",
+		"isList": true,
+		"owner": "Page",
+		"dataSet": {
+			"dataValue": ""
+		},
+		"dataBinding": {},
+		"saveInPhonegap": false,
+		"firstRow": 0,
+		"maxResults": 50,
+		"designMaxResults": 0,
+		"operation": "teamsList",
+		"service": "sales",
+		"startUpdate": true,
+		"autoUpdate": false,
+		"onBeforeUpdate": "Javascript",
+		"serviceType": "DataService",
+		"category": "wm.ServiceVariable",
+		"_id": "wm-wm.ServiceVariable1396414205024"
+	},
+	"quatersList": {
+		"name": "quatersList",
+		"type": "string",
+		"isList": true,
+		"owner": "Page",
+		"dataSet": [
+			{
+				"dataValue": "1"
+			},
+			{
+				"dataValue": "2"
+			},
+			{
+				"dataValue": "3"
+			},
+			{
+				"dataValue": "4"
+			}
+		],
+		"dataBinding": {
+			"dataValue": ""
+		},
+		"saveInPhonegap": false,
+		"category": "wm.Variable",
+		"_id": "wm-wm.Variable1396363367653"
+	},
+	"gameType": {
+		"name": "gameType",
+		"type": "GameType",
+		"isList": true,
+		"owner": "Page",
+		"dataSet": {
+			"dataValue": ""
+		},
+		"dataBinding": {},
+		"saveInPhonegap": false,
+		"firstRow": 0,
+		"maxResults": 10,
+		"designMaxResults": 0,
+		"operation": "gameType",
+		"service": "sales",
+		"startUpdate": true,
+		"autoUpdate": false,
+		"onBeforeUpdate": "Javascript",
+		"category": "wm.ServiceVariable",
+		"_id": "wm-wm.ServiceVariable1396416927577",
+		"serviceType": "DataService"
+	},
+	"salesData": {
+		"name": "salesData",
+		"type": "Sale",
+		"isList": true,
+		"owner": "Page",
+		"dataSet": {
+			"dataValue": ""
+		},
+		"dataBinding": {
+			"id": "",
+			"home": "bind:Widgets.gameteam.datavalue",
+			"year": "bind:Widgets.gameyear.datavalue",
+			"date": "",
+			"visitor": "",
+			"quarter": "bind:Widgets.gamequarter.datavalue",
+			"revenue": ""
+		},
+		"saveInPhonegap": false,
+		"operation": "read",
+		"liveSource": "sales",
+		"firstRow": 0,
+		"maxResults": 500,
+		"designMaxResults": 50,
+		"ignoreCase": false,
+		"matchMode": "start",
+		"autoUpdate": true,
+		"startUpdate": true,
+		"filterFields": {},
+		"category": "wm.LiveVariable",
+		"_id": "wm-wm.LiveVariable1397543771716",
+		"package": "com.sales.data.Sale",
+		"propertiesMap": {
+			"columns": [
+				{
+					"propertyName": "id",
+					"type": "integer",
+					"fullyQualifiedType": "integer",
+					"columnName": "id",
+					"isPrimaryKey": true,
+					"notNull": "true",
+					"length": "null",
+					"precision": "null",
+					"generator": "identity",
+					"isRelated": false
+				},
+				{
+					"propertyName": "home",
+					"type": "string",
+					"fullyQualifiedType": "string",
+					"columnName": "home",
+					"isPrimaryKey": false,
+					"notNull": "false",
+					"length": "100",
+					"precision": "null",
+					"generator": null,
+					"isRelated": false
+				},
+				{
+					"propertyName": "year",
+					"type": "integer",
+					"fullyQualifiedType": "integer",
+					"columnName": "year",
+					"isPrimaryKey": false,
+					"notNull": "false",
+					"length": "null",
+					"precision": "null",
+					"generator": null,
+					"isRelated": false
+				},
+				{
+					"propertyName": "date",
+					"type": "date",
+					"fullyQualifiedType": "date",
+					"columnName": "date",
+					"isPrimaryKey": false,
+					"notNull": "true",
+					"length": "10",
+					"precision": "null",
+					"generator": null,
+					"isRelated": false
+				},
+				{
+					"propertyName": "visitor",
+					"type": "string",
+					"fullyQualifiedType": "string",
+					"columnName": "visitor",
+					"isPrimaryKey": false,
+					"notNull": "false",
+					"length": "100",
+					"precision": "null",
+					"generator": null,
+					"isRelated": false
+				},
+				{
+					"propertyName": "quarter",
+					"type": "integer",
+					"fullyQualifiedType": "integer",
+					"columnName": "quarter",
+					"isPrimaryKey": false,
+					"notNull": "false",
+					"length": "null",
+					"precision": "null",
+					"generator": null,
+					"isRelated": false
+				},
+				{
+					"propertyName": "revenue",
+					"type": "float",
+					"fullyQualifiedType": "float",
+					"columnName": "revenue",
+					"isPrimaryKey": false,
+					"notNull": "false",
+					"length": "null",
+					"precision": "10",
+					"generator": null,
+					"isRelated": false
+				}
+			],
+			"entityName": "Sale",
+			"fullyQualifiedName": "com.sales.data.Sale"
+		}
+	},
+	"quarterlyRevenue": {
+		"name": "quarterlyRevenue",
+		"type": "Sale",
+		"isList": true,
+		"owner": "Page",
+		"dataSet": {
+			"dataValue": ""
+		},
+		"dataBinding": {},
+		"saveInPhonegap": false,
+		"firstRow": 0,
+		"maxResults": 10,
+		"designMaxResults": 0,
+		"operation": "quarterlyRevenue",
+		"service": "sales",
+		"startUpdate": true,
+		"autoUpdate": false,
+		"onBeforeUpdate": "Javascript",
+		"serviceType": "DataService",
+		"category": "wm.ServiceVariable",
+		"_id": "wm-wm.ServiceVariable1396446390509"
+	},
+	"yearlyRevenue": {
+		"name": "yearlyRevenue",
+		"type": "Sale",
+		"isList": true,
+		"owner": "Page",
+		"dataSet": {
+			"dataValue": ""
+		},
+		"dataBinding": {},
+		"saveInPhonegap": false,
+		"firstRow": 0,
+		"maxResults": 10,
+		"designMaxResults": 0,
+		"operation": "yearlyRevenue",
+		"service": "sales",
+		"startUpdate": true,
+		"autoUpdate": false,
+		"onBeforeUpdate": "Javascript",
+		"serviceType": "DataService",
+		"category": "wm.ServiceVariable",
+		"_id": "wm-wm.ServiceVariable1396446490239"
+	}
+}

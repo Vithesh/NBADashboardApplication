@@ -1,0 +1,45 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.sales.data.VenueDetail" table="venue_detail" catalog="sales" dynamic-insert="false" dynamic-update="false">
+        <id name="id" type="integer">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+        <property name="topGamePremium" type="float">
+            <column name="top_game_premium" precision="6"/>
+        </property>
+        <property name="location" type="string">
+            <column name="location" length="150"/>
+        </property>
+        <property name="topGamePrice" type="float">
+            <column name="top_game_price" precision="6"/>
+        </property>
+        <property name="pctChange" type="float">
+            <column name="pct_change" precision="6"/>
+        </property>
+        <property name="state" type="string">
+            <column name="state" length="45"/>
+        </property>
+        <property name="team" type="string">
+            <column name="team" length="100"/>
+        </property>
+        <property name="avgTicketPrice201112" type="float">
+            <column name="avg_ticket_price_2011_12" precision="6"/>
+        </property>
+        <property name="avgTicketPrice201213" type="float">
+            <column name="avg_ticket_price_2012_13" precision="6"/>
+        </property>
+        <property name="country" type="string">
+            <column name="country" length="45"/>
+        </property>
+        <property name="arena" type="string">
+            <column name="arena" length="150"/>
+        </property>
+        <property name="capacity" type="integer">
+            <column name="capacity"/>
+        </property>
+        <property name="opened" type="integer">
+            <column name="opened"/>
+        </property>
+    </class>
+</hibernate-mapping>

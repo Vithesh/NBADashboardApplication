@@ -1,0 +1,30 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.sales.data.ActionItem" table="action_item" catalog="sales" dynamic-insert="false" dynamic-update="false">
+        <id name="id" type="integer">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+        <property name="description" type="string">
+            <column name="description" length="200"/>
+        </property>
+        <property name="assignedTo" type="string">
+            <column name="assigned_to" length="100"/>
+        </property>
+        <property name="owner" type="string">
+            <column name="owner" length="100"/>
+        </property>
+        <property name="proposalStatus" type="string">
+            <column name="proposal_status" length="45"/>
+        </property>
+        <property name="actionStatus" type="string">
+            <column name="action_status" length="45"/>
+        </property>
+        <property name="dueDate" type="date">
+            <column name="due_date" length="10"/>
+        </property>
+        <property name="createdDate" type="date">
+            <column name="created_date" length="10" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>
